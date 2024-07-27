@@ -7,11 +7,11 @@ import (
 )
 
 type Config struct {
-	ApiPort  string
+	ApiPort  string `env:"_apiport"`
 	User     string
 	Password string
 	Host     string
-	Port     int
+	Port     uint
 	Db       string `env:"db_name"`
 }
 

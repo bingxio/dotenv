@@ -111,8 +111,9 @@ func unmarshal() (KvSlice, error) {
 		if whiteSpace(); ip >= len(buffer) {
 			return slice, nil
 		}
-		if markComment(); ip >= len(buffer) {
-			return slice, nil
+		if now() == '#' {
+			markComment()
+			continue
 		}
 		v, err := markKeyValue()
 		if err != nil {
